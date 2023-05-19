@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import id.ac.ibda.pads.proyekuas.R
 import id.ac.ibda.pads.proyekuas.ViewModel.LoginVM
 import id.ac.ibda.pads.proyekuas.databinding.FragmentLoginBinding
+import kotlin.math.log
 
 
 class LoginFragment : Fragment() {
@@ -28,13 +30,16 @@ class LoginFragment : Fragment() {
 
 
         // ######### CODE START HERE #########
-        val spUsername = binding.salesPersonUsernameField.text.toString()
-        val spPassword = binding.salesPersonPasswordField.text.toString()
+//        val spUsername = binding.salesPersonUsernameField.text.toString()
+//        val spPassword = binding.salesPersonPasswordField.text.toString()
 
         binding.loginButton.setOnClickListener {
-            val temp = loginVM.checkLogin(spUsername, spPassword).toString()
-            binding.textView.text = temp
+            loginVM.loadSalesPerson()
         }
+
+//        loginVM.salesperson.observe(this, Observer {
+//            binding.textView.text = it.id.toString()
+//        })
 
         // ########## CODE END HERE ##########
 
