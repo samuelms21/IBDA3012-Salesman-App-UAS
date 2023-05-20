@@ -35,11 +35,12 @@ class LoginFragment : Fragment() {
 
         binding.loginButton.setOnClickListener {
             loginVM.loadSalesPerson()
+//            binding.textView.text = loginVM.salesperson.toString()
         }
 
-//        loginVM.salesperson.observe(this, Observer {
-//            binding.textView.text = it.id.toString()
-//        })
+        loginVM.salesperson.observe(viewLifecycleOwner, Observer {
+            binding.textView.text = it.id.toString()
+        })
 
         // ########## CODE END HERE ##########
 
