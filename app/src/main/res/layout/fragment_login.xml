@@ -14,10 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="190dp"
         android:text="SalesMan Apps"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="38sp"
+        android:textColor="@color/black"
 
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,9 +32,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="36dp"
         android:height="50dp"
         android:ems="10"
+
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="14dp"
 
         android:hint="Enter your username"
         android:inputType="textPersonName"
@@ -54,6 +58,9 @@
         android:hint="Password"
         android:inputType="textPassword"
 
+        android:background="@drawable/edittext_background"
+        android:paddingLeft="14dp"
+
         android:minHeight="50dp"
         app:layout_constraintEnd_toEndOf="@+id/salesPersonUsernameField"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,6 +75,8 @@
         android:layout_height="59dp"
         android:layout_marginTop="32dp"
         android:text="Login"
+        android:backgroundTint="@color/black"
+        android:textAllCaps="false"
 
         app:layout_constraintEnd_toEndOf="@+id/salesPersonPasswordField"
         app:layout_constraintHorizontal_bias="0.495"
