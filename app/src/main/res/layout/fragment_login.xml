@@ -35,7 +35,7 @@
         android:height="50dp"
         android:ems="10"
 
-        android:hint="Sales username"
+        android:hint="Enter your username"
         android:inputType="textPersonName"
         android:minHeight="50dp"
         app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -64,8 +64,8 @@
     <Button
         android:id="@+id/loginButton"
 
-        android:layout_width="272dp"
-        android:layout_height="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
         android:layout_marginTop="32dp"
         android:text="Login"
 
