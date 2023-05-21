@@ -7,26 +7,28 @@ import androidx.lifecycle.viewModelScope
 import id.ac.ibda.pads.proyekuas.Model.SalesPersonItem
 import id.ac.ibda.pads.proyekuas.Repository.SalesPersonRepo
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 
 class LoginVM : ViewModel() {
 
     private val repo = SalesPersonRepo()
-    private val  _salesperson = MutableLiveData<SalesPersonItem>()
-    val salesperson: LiveData<SalesPersonItem>
+    private val  _salesperson = MutableLiveData<Response<List<SalesPersonItem>>>()
+
+    val salesperson: MutableLiveData<Response<List<SalesPersonItem>>>
         get() = _salesperson
 
-    fun loadSalesPerson() {
+    private fun loadSalesPerson() {
         viewModelScope.launch {
             val result = repo.getSalesPerson()
             _salesperson.postValue(result)
         }
     }
 
-    fun checkLogin(): Any {
-//        loadSalesPerson()
+    fun checkLogin(): MutableLiveData<Response<List<SalesPersonItem>>> {
+        loadSalesPerson()
 
-        return "spUsername"
+        return this._salesperson
     }
 
 }
