@@ -31,11 +31,13 @@ class LoginFragment : Fragment() {
 
 
         // ######### CODE START HERE #########
+//        val spUsername = binding.salesPersonUsernameField.text.toString()
+//        val spPassword = binding.salesPersonPasswordField.text.toString()
 
         binding.loginButton.setOnClickListener {
-            val temp = loginVM.checkLogin()
-            Log.d("TEST API", temp.value?.body().toString())
-
+            val username = binding.salesPersonUsernameField.text.toString()
+            val password = binding.salesPersonPasswordField.text.toString()
+            Log.d("TEST_LOGIN", "Username: ${username}, Password: ${password}")
         }
 
 //        loginVM.salesperson.observe(viewLifecycleOwner, Observer {

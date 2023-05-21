@@ -32,10 +32,12 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="52dp"
+        android:height="50dp"
         android:ems="10"
-        android:hint="Sales username"
 
+        android:hint="Sales username"
         android:inputType="textPersonName"
+        android:minHeight="50dp"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -52,6 +54,7 @@
         android:hint="Password"
         android:inputType="textPassword"
 
+        android:minHeight="50dp"
         app:layout_constraintEnd_toEndOf="@+id/salesPersonUsernameField"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/salesPersonUsernameField"
