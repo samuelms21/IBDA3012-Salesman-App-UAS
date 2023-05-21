@@ -24,9 +24,9 @@ class LoginVM : ViewModel() {
     }
 
     fun checkLogin(): Any {
-//        loadSalesPerson()
+        loadSalesPerson()
 
-        return "spUsername"
+        return this.salesperson
     }
 
 }
