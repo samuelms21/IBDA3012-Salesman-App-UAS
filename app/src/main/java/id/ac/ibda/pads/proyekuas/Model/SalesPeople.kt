@@ -1,6 +1,6 @@
 package id.ac.ibda.pads.proyekuas.Model
 
-data class SalesPersonItem(
+data class SalesPeople(
     val id: Int,
     val username: String
 )
