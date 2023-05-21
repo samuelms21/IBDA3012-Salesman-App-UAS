@@ -1,6 +1,7 @@
 package id.ac.ibda.pads.proyekuas.View
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,13 +35,14 @@ class LoginFragment : Fragment() {
 //        val spPassword = binding.salesPersonPasswordField.text.toString()
 
         binding.loginButton.setOnClickListener {
-            loginVM.loadSalesPerson()
-//            binding.textView.text = loginVM.salesperson.toString()
+            val username = binding.salesPersonUsernameField.text.toString()
+            val password = binding.salesPersonPasswordField.text.toString()
+            Log.d("TEST_LOGIN", "Username: ${username}, Password: ${password}")
         }
 
-        loginVM.salesperson.observe(viewLifecycleOwner, Observer {
-            binding.textView.text = it.id.toString()
-        })
+//        loginVM.salesperson.observe(viewLifecycleOwner, Observer {
+//            binding.textView.text = it.id.toString()
+//        })
 
         // ########## CODE END HERE ##########
 
