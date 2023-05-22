@@ -9,5 +9,14 @@
         android:id="@+id/loginFragment"
         android:name="id.ac.ibda.pads.proyekuas.View.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homepageFragment5"
+            app:destination="@id/homepageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homepageFragment"
+        android:name="id.ac.ibda.pads.proyekuas.View.HomepageFragment"
+        android:label="fragment_homepage"
+        tools:layout="@layout/fragment_homepage" />
 </navigation>
