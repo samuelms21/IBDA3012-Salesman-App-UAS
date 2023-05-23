@@ -6,6 +6,6 @@ data class ProductModel(
     val id: Int,
     val img_src: String,
     val name: String,
-    val price: Int,
+    val price: Double,
     val warehouse_qty: Int
 )

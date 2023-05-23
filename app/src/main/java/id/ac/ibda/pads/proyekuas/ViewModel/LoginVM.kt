@@ -1,38 +1,35 @@
 package id.ac.ibda.pads.proyekuas.ViewModel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
-import id.ac.ibda.pads.proyekuas.Model.SalesPeople
-import id.ac.ibda.pads.proyekuas.Utils.ApiService
+import id.ac.ibda.pads.proyekuas.Model.LoginRequest
+import id.ac.ibda.pads.proyekuas.Model.LoginResponse
+import id.ac.ibda.pads.proyekuas.Utils.AccessTokenManager
 import id.ac.ibda.pads.proyekuas.Utils.RetrofitObject
-import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class LoginVM : ViewModel() {
+    private val apiService = RetrofitObject.apiService
 
-//    private val diffCallback = object : DiffUtil.ItemCallback<SalesPeople>(){
-//        override fun areItemsTheSame(oldItem: SalesPeople, newItem: SalesPeople): Boolean {
-//            return oldItem.id == newItem.id
-//        }
-//
-//        override fun areContentsTheSame(oldItem: SalesPeople, newItem: SalesPeople): Boolean {
-//            return oldItem == newItem
-//        }
-//    }
-//
-//    private val differ = AsyncListDiffer(this, diffCallback)
-//    var itemList: List<SalesPeople>
-//        get() = differ.currentList
-//        set(value) {differ.submitList(value)}
+    fun login(username: String, password: String) {
+        val loginRequest = LoginRequest(username, password)
+        apiService.login(loginRequest).enqueue(object: Callback<LoginResponse>{
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                val user = response.body()
+                if (user!!.access_token != "invalid_credentials" ) {
+                    AccessTokenManager.setAccessToken(user.access_token)
+                } else {
+                    Log.e("LOGIN_ERROR", "Invalid credentials.")
+                }
+            }
 
-//    val ap = RetrofitObject.apiService.getSalesPerson()
-
-    fun checkLogin(): Any {
-        return "this.salesperson"
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                Log.e("LOGIN_ERROR", t.message.toString())
+            }
+        })
     }
 
 }
