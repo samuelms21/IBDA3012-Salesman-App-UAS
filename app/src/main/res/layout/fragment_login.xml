@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:paddingHorizontal="50dp"
     tools:context=".View.LoginFragment">
 
@@ -17,8 +18,8 @@
         android:layout_marginTop="190dp"
         android:text="SalesMan Apps"
         android:textAlignment="center"
-        android:textSize="38sp"
         android:textColor="@color/black"
+        android:textSize="38sp"
 
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,50 +35,56 @@
 
         android:layout_marginTop="36dp"
         android:height="50dp"
-        android:ems="10"
-
         android:background="@drawable/edittext_background"
-        android:paddingLeft="14dp"
 
+        android:ems="10"
         android:hint="Enter your username"
+
         android:inputType="textPersonName"
         android:minHeight="50dp"
+        android:paddingLeft="14dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <!--  Password: @salesPersonPasswordField  -->
+
+    <!--  Login Button: @loginButton  -->
     <EditText
         android:id="@+id/salesPersonPasswordField"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/edittext_background"
         android:ems="10"
         android:hint="Password"
+
         android:inputType="textPassword"
-
-        android:background="@drawable/edittext_background"
-        android:paddingLeft="14dp"
-
         android:minHeight="50dp"
+
+        android:paddingLeft="14dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         app:layout_constraintEnd_toEndOf="@+id/salesPersonUsernameField"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/salesPersonUsernameField"
         app:layout_constraintTop_toBottomOf="@+id/salesPersonUsernameField" />
 
-    <!--  Login Button: @loginButton  -->
     <Button
         android:id="@+id/loginButton"
 
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:layout_marginTop="32dp"
-        android:text="Login"
         android:backgroundTint="@color/black"
+        android:text="Login"
         android:textAllCaps="false"
 
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/salesPersonPasswordField"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/salesPersonPasswordField"
