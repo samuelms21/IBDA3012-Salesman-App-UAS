@@ -13,7 +13,6 @@ import id.ac.ibda.pads.proyekuas.R
 import id.ac.ibda.pads.proyekuas.ViewModel.HomepageVM
 import id.ac.ibda.pads.proyekuas.databinding.FragmentHomepageBinding
 
-
 class HomepageFragment : Fragment() {
 
     private lateinit var binding: FragmentHomepageBinding
