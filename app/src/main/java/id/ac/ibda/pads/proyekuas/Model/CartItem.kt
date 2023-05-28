@@ -1,7 +1,8 @@
 package id.ac.ibda.pads.proyekuas.Model
 
 data class CartItem(
+    val productId: Int,
     val productName: String,
     val price: Double,
-    val quantity: Int
+    var quantity: Int
 )

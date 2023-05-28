@@ -18,5 +18,30 @@
         android:id="@+id/homepageFragment"
         android:name="id.ac.ibda.pads.proyekuas.View.HomepageFragment"
         android:label="fragment_homepage"
-        tools:layout="@layout/fragment_homepage" />
+        tools:layout="@layout/fragment_homepage" >
+        <action
+            android:id="@+id/action_homepageFragment_to_shoppingCartFragment2"
+            app:destination="@id/shoppingCartFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCartFragment2"
+        android:name="id.ac.ibda.pads.proyekuas.View.ShoppingCartFragment"
+        android:label="fragment_shopping_cart"
+        tools:layout="@layout/fragment_shopping_cart" >
+        <action
+            android:id="@+id/action_shoppingCartFragment2_to_homepageFragment"
+            app:destination="@id/homepageFragment" />
+        <action
+            android:id="@+id/action_shoppingCartFragment2_to_pickCustomerFragment"
+            app:destination="@id/pickCustomerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickCustomerFragment"
+        android:name="id.ac.ibda.pads.proyekuas.View.PickCustomerFragment"
+        android:label="fragment_pick_customer"
+        tools:layout="@layout/fragment_pick_customer" >
+        <action
+            android:id="@+id/action_pickCustomerFragment_to_shoppingCartFragment2"
+            app:destination="@id/shoppingCartFragment2" />
+    </fragment>
 </navigation>

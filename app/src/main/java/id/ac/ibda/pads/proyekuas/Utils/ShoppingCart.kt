@@ -1,24 +1,34 @@
 package id.ac.ibda.pads.proyekuas.Utils
 
+import androidx.lifecycle.MutableLiveData
 import id.ac.ibda.pads.proyekuas.Model.CartItem
 
 object ShoppingCart {
-    private var items: MutableList<CartItem> = mutableListOf()
+    private var items: MutableLiveData<MutableList<CartItem>> = MutableLiveData(mutableListOf())
 
     fun addItem(item: CartItem) {
-        items.add(item)
+        if (items.value?.any{ it.productId == item.productId} == true) {
+            val position = items.value?.indexOfFirst { it.productId == item.productId }
+            items.value!![position!!].quantity += item.quantity
+        } else {
+            items.value!!.add(item)
+        }
     }
 
     fun removeItem(item: CartItem) {
-     items.remove(item)
+        items.value!!.remove(item)
     }
 
     fun clearCart() {
-        items.clear()
+        items.value!!.clear()
     }
 
     fun getCartItems(): List<CartItem> {
-        return items.toList()
+        return items.value!!.toList()
+    }
+
+    fun getItemCount(): Int {
+        return items.value!!.size
     }
 
     object companion {
