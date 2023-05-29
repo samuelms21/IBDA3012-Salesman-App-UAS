@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import id.ac.ibda.pads.proyekuas.Adapter.ShoppingCartListAdapter
@@ -60,7 +61,7 @@ class ShoppingCartFragment : Fragment() {
 
         val layoutManager = LinearLayoutManager(requireContext())
         binding.cartItemsRecyclerView.layoutManager = layoutManager
-        binding.totalCartPrice.text = "Total Order: $ ${shoppingCartVM.getCartTotalPrice()}"
+        binding.totalCartPrice.text = "Total Order\n$${shoppingCartVM.getCartTotalPrice()}"
         val itemCount = shoppingCartVM.getCartItemCount()
         if (itemCount > 0) {
             binding.pickCustomerButton.isEnabled = true
@@ -71,6 +72,11 @@ class ShoppingCartFragment : Fragment() {
         binding.clearCartButton.setOnClickListener {
             shoppingCartVM.clearCart()
             binding.pickCustomerButton.isEnabled = false
+        }
+
+        val navController = findNavController()
+        binding.pickCustomerButton.setOnClickListener {
+            navController.navigate(R.id.action_shoppingCartFragment2_to_pickCustomerFragment)
         }
     }
 }

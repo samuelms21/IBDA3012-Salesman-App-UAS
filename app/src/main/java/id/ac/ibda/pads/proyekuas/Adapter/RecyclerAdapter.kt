@@ -61,8 +61,12 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         holder.productAvailableQty.setText("Available Qty:\n${currentItem.available_qty.toString()}")
 
         holder.addToCartButton.setOnClickListener {
-            val qty = holder.productQtyInput.text.toString().trim().toInt()
-            itemButtonClickListener?.onItemButtonClicked(position, qty, currentItem)
+            if (holder.productQtyInput.text.toString().isEmpty()) {
+                // pass
+            } else {
+                val qty = holder.productQtyInput.text.toString().trim().toInt()  // ini error kalau kososng
+                itemButtonClickListener?.onItemButtonClicked(position, qty, currentItem)
+            }
         }
     }
 
